@@ -1,0 +1,6 @@
+#core packages
+setuptools==80.9.0
+
+#yaml packages
+pyyaml
+
