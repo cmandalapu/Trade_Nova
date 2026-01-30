@@ -1,0 +1,8 @@
+pyyaml
+requests
+pandas 
+openpyxl
+smartapi-python
+logzero
+websocket-client
+nsepython

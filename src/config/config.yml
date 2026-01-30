@@ -1,0 +1,46 @@
+angelone:
+  api_key: "u3476K5h" #from smart api
+  client_code: "AAAH178591" #brokerage client id
+  client_pin: "4144" #brokerage client id password 
+  totp_base_tocken : "CZGQQ66O2BJOEAKHUAYHRYZWTM"
+
+api_urls:
+  public_ip_url : "https://api.ipify.org" #to get public ip
+  angelone_base_endpoint : "apiconnect.angelone.in" # this is the base endpoint of angelone api
+  login_url : "/rest/auth/angelbroking/user/v1/loginByPassword" # endpoint to get login
+  logout_url : "/rest/secure/angelbroking/user/v1/logout" #endpoint to get logout
+  master_json : "https://margincalculator.angelone.in/OpenAPI_File/files/OpenAPIScripMaster.json" # used to get all the stocks list
+  
+
+input_file_names:
+  input_files_folder : "Input_Files"
+  bhavcpy_file : "StocksTraded.csv"
+
+
+output_file_names:
+  login_response : "login_response.txt"
+  atr_base_results_folder : "ATR_Intraday_Strategy_Results"
+  atr_list_stocks_folder : "ATR_Intraday_Stocks_List"
+  atr_list_stocks_output : "ATR_Instraday_Stocks.xlsx"
+
+atr_strategy_params:
+  stock_min_price  : 1500.0
+  stock_max_price  : 3000.0
+  atr_threshold    : 40
+  atr_threshold_days : 30
+  atr_%check_days : 4
+  
+
+api_methods:
+  POST : "POST"
+  GET : "GET"
+
+network:
+  client_local_ip: "127.0.0.1"
+  
+
+app:
+  state: "LIVE"
+  environment: "PROD"
+
+
