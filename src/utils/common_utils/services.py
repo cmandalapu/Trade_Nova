@@ -44,3 +44,19 @@ def cash_market_holiday_list():
     }
     return cm_holiday_dates
 
+
+def get_common_header(access_token):
+    header ={
+        'X-PrivateKey': config["angelone"]["api_key"],
+        'X-ClientLocalIP': config["network"]["client_local_ip"],
+        'X-ClientPublicIP': get_public_ip(),
+        'X-MACAddress': get_mac_address(),
+        'X-UserType': 'USER',
+        'Authorization': 'Bearer {access_token}',
+        'Accept': 'application/json',
+        'X-SourceID': 'WEB',
+        'Content-Type': 'application/json' 
+    }
+
+    return header
+

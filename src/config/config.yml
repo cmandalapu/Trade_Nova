@@ -29,6 +29,11 @@ atr_strategy_params:
   atr_threshold    : 40
   atr_threshold_days : 30
   atr_%check_days : 4
+  entry_hr        : 10
+  entry_min       : 01
+  exit_hr         : 10
+  exit_min        : 59
+  mode            : "FULL"
   
 
 api_methods:

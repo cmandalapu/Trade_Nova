@@ -19,13 +19,6 @@ def download_master_json():
     response.raise_for_status()
     return response.json()
 
-def get_smart_api():
-    smart = SmartConnect(api_key=config["angelone"]["api_key"])
-    data = load_login_response()
-    smart.setAccessToken(data["data"]["jwtToken"])
-    smart.setRefreshToken(data["data"]["refreshToken"])
-    return smart
-
 def get_last_trading_day(cm_holiday_dates):    
     today = date.today()
     d = today - timedelta(days=1)  
@@ -93,9 +86,9 @@ def filter_stocks_based_on_price(nse_equity_stocks,nse_stocks_close_price):
     df_nse_stocks = pd.DataFrame(nse_equity_stocks)
     df_nse_closed_price = nse_stocks_close_price[(nse_stocks_close_price["close_price"]>=lower_limit) & (nse_stocks_close_price["close_price"]<=upper_limit)]
     df_nse_stocks['name'] = df_nse_stocks['name'].str.strip().str.upper()
-    df_nse_closed_price['symbol'] = df_nse_closed_price['symbol'].str.strip().str.upper()
+    #df_nse_closed_price['symbol'] 
+    df_nse_closed_price.loc[:, 'symbol']= df_nse_closed_price['symbol'].str.strip().str.upper()
     final_df = pd.merge(df_nse_stocks,df_nse_closed_price,how='inner',left_on='name',right_on='symbol')[["date1","name","token","close_price"]]
-               
     return final_df
         
 
@@ -127,7 +120,7 @@ def perform_anomoly_detection(lst_stocks_with_price_range):
             output_dfs.append(latest_df)
     
     final_df = pd.concat(output_dfs, ignore_index=True)
-
+    final_df.rename(columns={'date1': 'recent_traded_date'}, inplace=True) 
     return final_df
 
 
