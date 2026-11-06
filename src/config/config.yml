@@ -1,8 +1,8 @@
 angelone:
-  api_key: "u3476K5h" #from smart api
-  client_code: "AAAH178591" #brokerage client id
-  client_pin: "4144" #brokerage client id password 
-  totp_base_tocken : "CZGQQ66O2BJOEAKHUAYHRYZWTM"
+  api_key: "--" #from smart api
+  client_code: "--" #brokerage client id
+  client_pin: "--" #brokerage client id password 
+  totp_base_tocken : "--"
 
 api_urls:
   public_ip_url : "https://api.ipify.org" #to get public ip
